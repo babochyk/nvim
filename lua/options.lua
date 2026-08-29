@@ -4,7 +4,7 @@ local o = {
 	timeout = false,
 	tabstop = 2,
 	shiftwidth = 2,
-	signcolumn = "auto",
+	signcolumn = "yes:1",
 	cmdheight = 0,
 	laststatus = 3,
 	autoread = true,
@@ -12,7 +12,7 @@ local o = {
 	swapfile = false,
 	undofile = false,
 	list = true,
-	shell = "powershell -NoLogo -NoProfile",
+	-- shell = "powershell -NoLogo -NoProfile",
 }
 
 for k, v in pairs(o) do

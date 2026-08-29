@@ -11,3 +11,9 @@ map("v", "<A-k>", ":m '<-2<CR>gv") -- move line down(v)
 
 map("v", ">", ">gv")
 map("v", "<", "<gv")
+
+
+map("n", "<C-w>>", "<C-w>2><C-w>", { remap = true } )
+map("n", "<C-w><", "<C-w>2<<C-w>", { remap = true } )
+map("n", "<C-w>+", "<C-w>2+<C-w>", { remap = true } )
+map("n", "<C-w>-", "<C-w>2-<C-w>", { remap = true } )

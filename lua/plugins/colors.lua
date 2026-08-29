@@ -1,11 +1,5 @@
 return {
 	{
-		"Nyvyme/naysayer.nvim",
-		config = function()
-			vim.cmd("colorscheme naysayer")
-		end,
-	},
-		{
 		"norcalli/nvim-colorizer.lua",
 		config = true
 	},
