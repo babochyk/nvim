@@ -1,5 +1,5 @@
 local servers = {
-	["clangd"] = {},
+	-- ["clangd"] = {},
 	["lua_ls"] = {
 		settings = {
 			Lua = {
@@ -25,6 +25,7 @@ return {
 		local opts = {
 			ensure_installed = vim.tbl_keys(servers),
 			automatic_installation = true,
+			automatic_enable = false
 		}
 		require("mason-lspconfig").setup(opts)
 
