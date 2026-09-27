@@ -20,7 +20,7 @@ local o = {
 	ignorecase = true,
 	smartcase = true,
 	scrolloff = 8,
-	-- guicursor = "",
+	guicursor = "",
 	-- shell = "powershell -NoLogo -NoProfile",
 }
 
