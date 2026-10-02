@@ -5,6 +5,7 @@ vim.pack.add({
 })
 
 local servers = {
+	["pylsp"] = {},
   ["jdtls"] = {
 		root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw', 'r.sh'}),
 	},

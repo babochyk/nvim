@@ -47,6 +47,7 @@ for k, v in pairs(g) do
 	vim.g[k] = v
 end
 
+-- yank highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.hl.on_yank()

@@ -1,0 +1,89 @@
+-- local function get_selection()
+-- 	local mode = vim.fn.mode()
+-- 	return vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), {
+-- 		type = mode,
+-- 		exclusive = false,
+-- 		eol = false,
+-- 	})
+-- end
+--
+-- map("v", "<leader>s", function()
+-- 	local selection = get_selection()
+-- 	local text = table.concat(selection, "\n")
+--
+-- 	local input_opts = { prompt = "Buffer substitute: ", default = text, scope = "buffer" }
+-- 	vim.ui.input(input_opts, function(input)
+-- 		if input == nil then
+-- 			return
+-- 		end
+-- 		vim.cmd(string.format("%%s/%s/%s/gI", text, input))
+-- 	end)
+-- end)
+
+-- map("v", "<leader>S", function()
+-- 	if vim.fn.mode() ~= 'v' then
+-- 		return
+-- 	end
+-- 	local selection = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+-- 	local cmd = string.format("<BS><BS><BS><BS><BS>s/%s/%s/gI<Left><Left><Left>", selection, selection)
+-- 	local keys = vim.keycode(":" .. cmd, true, false, true)
+-- 	vim.api.nvim_feedkeys(keys, "n", false)
+-- end)
+-- map("v", "<leader>s", function()
+-- 	local mode = vim.fn.mode()
+-- 	local selection = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), {type = mode}), "\n")
+-- 	local cmd = string.format("<BS><BS><BS><BS><BS>%%s/%s/%s/gI<Left><Left><Left>", selection, selection)
+-- 	local keys = vim.keycode(":" .. cmd, true, false, true)
+-- 	vim.api.nvim_feedkeys(keys, "n", false)
+-- end)
+
+--epic but useless substitute
+-- map("n", "<leader>S", function()
+-- 	local viw = vim.fn.expand("<cword>")
+-- 	local opts = { prompt = "Line substitute: ", default = viw, scope = "buffer" }
+-- 	vim.ui.input(opts, function(input)
+-- 		if input == nil then
+-- 
+-- 		end
+-- 		vim.cmd(string.format("s/\\<%s\\>/%s/gI", viw, input))
+-- 	end)
+-- end)
+--
+-- map("n", "<leader>s", function()
+-- 	local viw = vim.fn.expand("<cword>")
+-- 	local opts = { prompt = "Buffer substitute: ", default = viw, scope = "buffer" }
+-- 	vim.ui.input(opts, function(input)
+-- 		if input == nil then
+-- 
+-- 		end
+-- 		vim.cmd(string.format("%%s/\\<%s\\>/%s/gI", viw, input))
+-- 	end)
+-- end)
+--
+-- map("v", "<leader>S", function()
+-- 	if vim.fn.mode() ~= 'v' then
+-- 		return
+-- 	end
+-- 	local viw = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+-- 	local opts = { prompt = "Line substitute: ", default = viw, scope = "buffer" }
+-- 	vim.ui.input(opts, function(input)
+-- 		if input == nil then
+-- 
+-- 		end
+-- 		vim.cmd(string.format("s/\\<%s\\>/%s/gI", viw, input))
+-- 	end)
+-- end)
+--
+-- map("v", "<leader>s", function()
+-- 	if vim.fn.mode() ~= 'v' then
+-- 		return
+-- 	end
+-- 	local viw = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+-- 	local opts = { prompt = "Line substitute: ", default = viw, scope = "buffer" }
+-- 	vim.ui.input(opts, function(input)
+-- 		if input == nil then
+-- 
+-- 		end
+-- 		vim.cmd(string.format("%%s/\\<%s\\>/%s/gI", viw, input))
+-- 	end)
+-- end)
