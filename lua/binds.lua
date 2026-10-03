@@ -21,10 +21,11 @@ end)
 
 -- terminal qol
 map("t", "<Esc>", "<C-\\><C-n>")
-map("n", "<leader>t", "te<CR>")
-map("n", "<C-w>tv", "<C-w>v:te<CR>")
-map("n", "<C-w>tn", "<C-w>n:te<CR>")
-map("n", "<C-w>ts", "<C-w>s:te<CR>")
+map("n", "<leader>t<CR>", ":te<CR>")
+map("n", "<leader>tv", "<C-w>v:te<CR>")
+map("n", "<leader>tn", "<C-w>n:te<CR>")
+map("n", "<leader>ts", "<C-w>s:te<CR>")
+map("n", "<leader>tt", ":tabnew<CR>:te<CR>")
 
 -- vertical line movement
 map("n", "<A-j>", ":m .+1<CR>==")
@@ -60,11 +61,19 @@ map("n", "<leader>e", function()
 	vim.cmd.e(".")
 end)
 
+-- tabpage
+map("n", "<leader>tn", ":tabnew<CR>")
+map("n", "<leader>th", ":tabnext -1<CR>")
+map("n", "<leader>tl", ":tabnext<CR>")
+
+-- windows
+map("n", "<leader>w", "<C-w>")
+
 -- window resizing
-map("n", "<C-w>>", "<C-w>2><C-w>", { remap = true })
-map("n", "<C-w><", "<C-w>2<<C-w>", { remap = true })
-map("n", "<C-w>+", "<C-w>2+<C-w>", { remap = true })
-map("n", "<C-w>-", "<C-w>2-<C-w>", { remap = true })
+map("n", "<leader>>", "<C-w>2><C-w>", { remap = true })
+map("n", "<leader><", "<C-w>2<<C-w>", { remap = true })
+map("n", "<leader>+", "<C-w>2+<C-w>", { remap = true })
+map("n", "<leader>-", "<C-w>2-<C-w>", { remap = true })
 
 -- lsp
 local buf = vim.lsp.buf
