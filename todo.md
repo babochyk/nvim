@@ -1,0 +1,2 @@
+- custom colorscheme
+- multiple cursor (emacs) magic
