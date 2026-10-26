@@ -87,3 +87,8 @@ map("v", "<leader>f", buf.format)
 map("n", "<leader>a", buf.code_action)
 map("n", "<leader>r", buf.rename)
 
+-- compile mode
+map("n", "<leader>cc", ":Compile<CR>");
+map("n", "<leader>cj", ":NextError<CR>");
+map("n", "<leader>ck", ":PrevError<CR>");
+map("n", "<leader>cq", require("compile-mode").close_buffer);

@@ -1,4 +1,5 @@
 require("options")
+require("compile");
 require("binds")
 require("lsp")
 

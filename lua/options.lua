@@ -21,7 +21,7 @@ local o = {
 	smartcase = true,
 	scrolloff = 8,
 	guicursor = "",
-	-- shell = "powershell -NoLogo -NoProfile",
+	shell = "/usr/bin/bash",
 }
 
 for k, v in pairs(o) do
@@ -32,7 +32,7 @@ local g = {
 	mapleader = " ",
 	maplocalleader = "\\",
 	netrw_banner = 0,
-	netrw_keepdir = 0,
+	netrw_keepdir = 1,
 	neovide_position_animation_length = 0,
 	neovide_cursor_animation_length = 0.00,
 	neovide_cursor_trail_size = 0,
