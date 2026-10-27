@@ -6,7 +6,7 @@ vim.pack.add({
 vim.g.compile_mode = {
 	default_command = "",
 	focus_compilation_buffer = true,
-	-- clear_environment = true,
+	use_circular_error_navigation = true,
 }
 
 require("compile-mode");
