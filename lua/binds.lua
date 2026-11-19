@@ -1,18 +1,20 @@
 local map = vim.keymap.set
+local function feed(keystr)
+	local keys = vim.keycode(keystr)
+	vim.api.nvim_feedkeys(keys, "n", false)
+end
 
 -- oO
 map("n", "O", function()
 	local count = vim.v.count1
 	for _ = 1, count do
-		local keys = vim.keycode("<Esc>O")
-		vim.api.nvim_feedkeys(keys, "n", false)
+		feed("<Esc>O")
 	end
 end, { remap = true })
 map("n", "o", function()
 	local count = vim.v.count1
 	for _ = 1, count do
-		local keys = vim.keycode("<Esc>o")
-		vim.api.nvim_feedkeys(keys, "n", false)
+		feed("<Esc>o")
 	end
 end, { remap = true })
 
@@ -45,6 +47,10 @@ map("n", "<A-k>", ":m .-2<CR>==")
 map("v", "<A-j>", ":m '>+1<CR>gv=gv")
 map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
+-- "formatting"
+map("n", "<leader>f", "<A-j><A-k>", { remap = true })
+map("v", "<leader>f", "<A-j><A-k>", { remap = true })
+
 -- horizontal line movement qol
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -67,10 +73,8 @@ map("v", "<leader>s", function()
 			local opts2 = { prompt = string.format("Query substitute %s with: ", word1), scope = "buffer" }
 			vim.ui.input(opts2, function(word2)
 				if word2 ~= nil then
-					local str = string.format(":s/%s/%s/gI<Enter>", word1, word2)
-					local keys = vim.keycode(str)
-					vim.api.nvim_feedkeys(keys, "n", false)
-					-- vim.cmd(string.format("\'<,\'>s/%s/%s/gI", word1, word2))
+					local str = string.format(":s/\\<%s\\>/%s/gI<Enter>", word1, word2)
+					feed(str)
 				end
 			end)
 		end
@@ -110,11 +114,10 @@ map("n", "<C-w>_", "<C-w>2-<C-w>", { remap = true })
 
 -- lsp
 local buf = vim.lsp.buf
-
 map("n", "gD", buf.declaration)
 map("n", "K", buf.hover)
-map("n", "<leader>f", buf.format)
-map("v", "<leader>f", buf.format)
+map("n", "<leader>F", buf.format)
+map("v", "<leader>F", buf.format)
 map("n", "<leader>a", buf.code_action)
 map("n", "<leader>r", buf.rename)
 
