@@ -1,5 +1,21 @@
 local map = vim.keymap.set
 
+-- oO
+map("n", "O", function()
+	local count = vim.v.count1
+	for _ = 1, count do
+		local keys = vim.keycode("<Esc>O")
+		vim.api.nvim_feedkeys(keys, "n", false)
+	end
+end, { remap = true })
+map("n", "o", function()
+	local count = vim.v.count1
+	for _ = 1, count do
+		local keys = vim.keycode("<Esc>o")
+		vim.api.nvim_feedkeys(keys, "n", false)
+	end
+end, { remap = true })
+
 -- noh
 map("n", ",", "<cmd>noh<CR>")
 
@@ -44,7 +60,22 @@ map("n", "N", "Nzzzv")
 -- substitute
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map("n", "<leader>S", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map("v", "<leader>s", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("v", "<leader>s", function()
+	local opts1 = { prompt = "Query substitute: ", scope = "buffer" }
+	vim.ui.input(opts1, function(word1)
+		if word1 ~= nil then
+			local opts2 = { prompt = string.format("Query substitute %s with: ", word1), scope = "buffer" }
+			vim.ui.input(opts2, function(word2)
+				if word2 ~= nil then
+					local str = string.format(":s/%s/%s/gI", word1, word2)
+					local keys = vim.keycode(str)
+					vim.api.nvim_feedkeys(keys, "n", false)
+					-- vim.cmd(string.format("\'<,\'>s/%s/%s/gI", word1, word2))
+				end
+			end)
+		end
+	end)
+end)
 
 -- undo tree
 map("n", "<leader>u", function()
