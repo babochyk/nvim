@@ -67,7 +67,7 @@ map("v", "<leader>s", function()
 			local opts2 = { prompt = string.format("Query substitute %s with: ", word1), scope = "buffer" }
 			vim.ui.input(opts2, function(word2)
 				if word2 ~= nil then
-					local str = string.format(":s/%s/%s/gI", word1, word2)
+					local str = string.format(":s/%s/%s/gI<Enter>", word1, word2)
 					local keys = vim.keycode(str)
 					vim.api.nvim_feedkeys(keys, "n", false)
 					-- vim.cmd(string.format("\'<,\'>s/%s/%s/gI", word1, word2))
